@@ -1,0 +1,8 @@
+{
+  "short_name": "@snyung/use-intersect",
+  "name": "@snyung/use-intersect",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

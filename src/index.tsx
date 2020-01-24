@@ -17,7 +17,7 @@ const useIntersect = (
   onIntersect: Function,
   customOptions?: ObserverOptions
 ) => {
-  const targetRef = useRef<Element>();
+  const targetRef = useRef<any>();
   const observerOptions: ObserverOptions = customOptions || initalOptions;
   let observer: IntersectionObserver | CustomObserve;
 

@@ -3,8 +3,8 @@ import React from 'react'
 import useIntersect from 'use-intersect'
 
 const App = () => {
-  const onIntersectFunc = () => {
-    console.log('intersect')
+  const onIntersectFunc = (target) => {
+    console.log('intersect', target)
   }
 
   const customeRef = useIntersect(onIntersectFunc)

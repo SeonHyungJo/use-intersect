@@ -9,7 +9,7 @@ export const intersectionObserver = (onIntersect: Function, observerOptions: Obs
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
-          onIntersect()
+          onIntersect(entry.target)
           observer.unobserve(entry.target);
         }
       })
@@ -28,7 +28,7 @@ export const intersectionObserver = (onIntersect: Function, observerOptions: Obs
             const { top, bottom } = targetEle.getBoundingClientRect()
 
             if ((top <= window.innerHeight && bottom >= 0) && getComputedStyle(targetEle).display !== "none") {
-              onIntersect()
+              onIntersect(targetEle)
 
               observedList = observedList.filter((diffObserve) => {
                 return diffObserve !== targetEle;

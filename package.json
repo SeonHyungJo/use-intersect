@@ -1,10 +1,13 @@
 {
-  "name": "@snyung/use-intersect",
+  "name": "use-intersect",
   "version": "0.0.1",
-  "description": "",
+  "description": ">",
   "author": "snyung",
   "license": "MIT",
-  "repository": "SeonHyungJo/use-intersect",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeonHyungJo/use-intersect.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
@@ -44,5 +47,16 @@
     "rollup-plugin-typescript2": "0.25.3",
     "rollup-plugin-url": "3.0.1",
     "typescript": "^3.2.4"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/SeonHyungJo/use-intersect/issues"
+  },
+  "homepage": "https://github.com/SeonHyungJo/use-intersect",
+  "directories": {
+    "example": "example"
+  },
+  "keywords": [
+    "react",
+    "hooks"
+  ]
 }

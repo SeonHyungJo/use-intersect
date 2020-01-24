@@ -1,13 +1,13 @@
-# @snyung/use-intersect
+# use-intersect
 
-> 
+>
 
-[![NPM](https://img.shields.io/npm/v/@snyung/use-intersect.svg)](https://www.npmjs.com/package/@snyung/use-intersect) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/use-intersect.svg)](https://www.npmjs.com/package//use-intersect) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save @snyung/use-intersect
+npm install --save use-intersect
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install --save @snyung/use-intersect
 ```tsx
 import * as React from 'react'
 
-import { useMyHook } from '@snyung/use-intersect'
+import { useMyHook } from 'use-intersect'
 
 const Example = () => {
   const example = useMyHook()

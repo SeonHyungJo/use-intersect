@@ -1,6 +1,6 @@
 import React from 'react'
 
-import useIntersect from '@snyung/use-intersect'
+import useIntersect from 'use-intersect'
 
 const App = () => {
   const onIntersectFunc = () => {

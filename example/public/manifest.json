@@ -1,6 +1,6 @@
 {
-  "short_name": "@snyung/use-intersect",
-  "name": "@snyung/use-intersect",
+  "short_name": "/use-intersect",
+  "name": "/use-intersect",
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",

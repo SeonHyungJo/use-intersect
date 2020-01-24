@@ -1,6 +1,6 @@
 {
-  "name": "@snyung/use-intersect-example",
-  "homepage": "https://SeonHyungJo.github.io/@snyung/use-intersect",
+  "name": "use-intersect-example",
+  "homepage": "https://SeonHyungJo.github.io/use-intersect",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
@@ -8,7 +8,7 @@
     "react": "link:../node_modules/react",
     "react-dom": "^16.9.0",
     "react-scripts": "^3.0.1",
-    "@snyung/use-intersect": "link:.."
+    "use-intersect": "link:.."
   },
   "scripts": {
     "start": "react-scripts start",

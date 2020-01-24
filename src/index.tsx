@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
+import { intersectionObserver, CustomObserve } from "./util";
 
-interface ObserverOptions {
+export interface ObserverOptions {
   root: Element | null;
   rootMargin: string;
   thresholds: number;
@@ -18,17 +19,10 @@ const useIntersect = (
 ) => {
   const targetRef = useRef<Element>();
   const observerOptions: ObserverOptions = customOptions || initalOptions;
-  let observer: IntersectionObserver;
+  let observer: IntersectionObserver | CustomObserve;
 
   useEffect(() => {
-    observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry: IntersectionObserverEntry) => {
-        if (entry.isIntersecting) {
-          onIntersect();
-          observer.unobserve(entry.target);
-        }
-      })
-    }, observerOptions);
+    observer = intersectionObserver(onIntersect, observerOptions);
   });
 
   useEffect(() => {

@@ -11,6 +11,7 @@ const App = () => {
 
   return (
     <>
+      <div ref={customeRef} className={'testDiv'} />
       <div className={'testDiv'} />
       <div className={'testDiv'} />
       <div className={'testDiv'} />
@@ -30,8 +31,7 @@ const App = () => {
       <div className={'testDiv'} />
       <div className={'testDiv'} />
       <div className={'testDiv'} />
-      <div className={'testDiv'} />
-      <div className={'testDiv'} />
+      <div ref={customeRef} className={'testDiv'} />
       <div ref={customeRef} className={'testDiv'} />
     </>
   )

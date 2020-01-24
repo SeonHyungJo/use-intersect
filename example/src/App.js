@@ -1,13 +1,39 @@
 import React from 'react'
 
-import { useMyHook } from '@snyung/use-intersect'
+import useIntersect from '@snyung/use-intersect'
 
 const App = () => {
-  const example = useMyHook()
+  const onIntersectFunc = () => {
+    console.log('intersect')
+  }
+
+  const customeRef = useIntersect(onIntersectFunc)
+
   return (
-    <div>
-      {example}
-    </div>
+    <>
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div className={'testDiv'} />
+      <div ref={customeRef} className={'testDiv'} />
+    </>
   )
 }
 export default App

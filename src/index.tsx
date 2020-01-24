@@ -1,23 +1,43 @@
-import * as React from 'react';
+import { useEffect, useRef } from "react";
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState<{
-    counter: number;
-  }>({
-    counter: 0
+interface ObserverOptions {
+  root: Element | null;
+  rootMargin: string;
+  thresholds: number;
+}
+
+const initalOptions: ObserverOptions = {
+  root: null,
+  rootMargin: "0px",
+  thresholds: 0
+};
+
+const useIntersect = (
+  onIntersect: Function,
+  customOptions?: ObserverOptions
+) => {
+  const targetRef = useRef<Element>();
+  const observerOptions: ObserverOptions = customOptions || initalOptions;
+  let observer: IntersectionObserver;
+
+  useEffect(() => {
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.isIntersecting) {
+          onIntersect();
+          observer.unobserve(entry.target);
+        }
+      })
+    }, observerOptions);
   });
 
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++;
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval);
-    };
-  }, []);
+  useEffect(() => {
+    if (targetRef !== null) {
+      observer.observe(targetRef.current as Element);
+    }
+  }, [targetRef]);
 
-  return counter;
+  return targetRef;
 };
+
+export default useIntersect;

@@ -22,18 +22,42 @@ import * as React from 'react'
 
 import useIntersect from 'use-intersect'
 
+const option = {
+  threshold: 0.8
+}
+
 const handleIntersect = (targetElement) ={
   console.log('intersect', targetElement)
 }
 
 const Example = () => {
-  const targetRef = useIntersect(handleIntersect)
+  const targetRef = useIntersect(handleIntersect, option)
 
   return (
     <img ref={targetRef}/>
   )
 }
 ```
+
+## API
+
+### `useIntersect`
+
+| Prop | Type | Required | Description |
+| :--- | :--- | :------: | :---------- |
+| `onIntersect` | Function |    ✓     | Execute onItersect Function |
+| `customOptions` | ObserverOptions | | Observer option |
+
+### `ObserverOptions` type
+
+| name | Type | Required | Description |
+| :--- | :--- | :------: | :---------- |
+| `root` | Element \| null |    ✓     | root Element |
+| `rootMargin` | string | | Observer rootMargin |
+| `threshold` | number | | Observer threshold |
+
+> [[MDN]Reference](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver)
+
 
 ## License
 

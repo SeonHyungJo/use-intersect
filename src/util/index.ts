@@ -14,10 +14,12 @@ export const intersectionObserver = (onIntersect: Function, observerOptions: Obs
         }
       })
     }, observerOptions)
+
     return observer
   } else {
     let active = false;
     let observedList: Array<Element> = []
+    const { threshold = 0 } = observerOptions
 
     const observer = () => {
       if (active === false) {
@@ -26,8 +28,14 @@ export const intersectionObserver = (onIntersect: Function, observerOptions: Obs
         setTimeout(() => {
           observedList.forEach((targetEle: Element) => {
             const { top, bottom } = targetEle.getBoundingClientRect()
+            const downThreshold = top + (bottom - top) * threshold
+            const upThreshold = top + (bottom - top) * (1 - threshold)
 
-            if ((top <= window.innerHeight && bottom >= 0) && getComputedStyle(targetEle).display !== "none") {
+            const thresholdChecking =
+              (top >= 0 && downThreshold <= window.innerHeight && bottom >= 0)
+              || (upThreshold >= 0 && bottom <= window.innerHeight)
+
+            if (thresholdChecking && getComputedStyle(targetEle).display !== "none") {
               onIntersect(targetEle)
 
               observedList = observedList.filter((diffObserve) => {
@@ -51,7 +59,7 @@ export const intersectionObserver = (onIntersect: Function, observerOptions: Obs
     window.addEventListener("orientationchange", observer);
 
     return {
-      observe: (setElement: Element) => {
+      observe: (setElement: Element): void => {
         observedList.push(setElement)
       }
     }

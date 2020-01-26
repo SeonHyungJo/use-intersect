@@ -2,15 +2,15 @@ import { useEffect, useRef } from "react";
 import { intersectionObserver, CustomObserve } from "./util";
 
 export interface ObserverOptions {
-  root: Element | null;
-  rootMargin: string;
-  thresholds: number;
+  root?: Element | null;
+  rootMargin?: string;
+  threshold?: number;
 }
 
 const initalOptions: ObserverOptions = {
   root: null,
   rootMargin: "0px",
-  thresholds: 0
+  threshold: 0
 };
 
 const useIntersect = (

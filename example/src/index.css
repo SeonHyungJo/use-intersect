@@ -8,4 +8,14 @@
   width: 100px;
   height: 100px;
   background-color: blue;
+  border: 1px solid #000;
+  margin: 0px auto;
+}
+
+.targetDiv{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border: 1px solid #000;
+  margin: 0px auto;
 }

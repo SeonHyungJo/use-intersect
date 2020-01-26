@@ -24,7 +24,6 @@
     "noUnusedParameters": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "strict": true,
     "resolveJsonModule": true,
     "isolatedModules": true,

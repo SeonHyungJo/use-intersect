@@ -1,16 +1,23 @@
 import { ObserverOptions } from "../index"
 
+export interface OserverOptions {
+  observerOptions: ObserverOptions,
+  once: boolean
+}
+
 export interface CustomObserve {
   observe: Function
 }
 
-export const intersectionObserver = (onIntersect: Function, observerOptions: ObserverOptions) => {
+export const intersectionObserver = (onIntersect: Function, { observerOptions, once }: OserverOptions) => {
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
           onIntersect(entry.target)
-          observer.unobserve(entry.target);
+          if (once) {
+            observer.unobserve(entry.target);
+          }
         }
       })
     }, observerOptions)
@@ -38,14 +45,16 @@ export const intersectionObserver = (onIntersect: Function, observerOptions: Obs
             if (thresholdChecking && getComputedStyle(targetEle).display !== "none") {
               onIntersect(targetEle)
 
-              observedList = observedList.filter((diffObserve) => {
-                return diffObserve !== targetEle;
-              });
+              if (once) {
+                observedList = observedList.filter((diffObserve) => {
+                  return diffObserve !== targetEle;
+                });
 
-              if (observedList.length === 0) {
-                document.removeEventListener("scroll", observer);
-                window.removeEventListener("resize", observer);
-                window.removeEventListener("orientationchange", observer);
+                if (observedList.length === 0) {
+                  document.removeEventListener("scroll", observer);
+                  window.removeEventListener("resize", observer);
+                  window.removeEventListener("orientationchange", observer);
+                }
               }
             }
           });

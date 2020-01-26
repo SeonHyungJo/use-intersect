@@ -7,6 +7,11 @@ export interface ObserverOptions {
   threshold?: number;
 }
 
+export interface IntersectOptions {
+  rootOptions?: ObserverOptions;
+  once?: boolean;
+}
+
 const initalOptions: ObserverOptions = {
   root: null,
   rootMargin: "0px",
@@ -15,14 +20,14 @@ const initalOptions: ObserverOptions = {
 
 const useIntersect = (
   onIntersect: Function,
-  customOptions?: ObserverOptions
+  { rootOptions, once = true }: IntersectOptions
 ) => {
   const targetRef = useRef<any>();
-  const observerOptions: ObserverOptions = customOptions || initalOptions;
+  const observerOptions: ObserverOptions = rootOptions || initalOptions;
   let observer: IntersectionObserver | CustomObserve;
 
   useEffect(() => {
-    observer = intersectionObserver(onIntersect, observerOptions);
+    observer = intersectionObserver(onIntersect, { observerOptions, once });
   });
 
   useEffect(() => {

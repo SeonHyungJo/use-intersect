@@ -31,7 +31,8 @@ const handleIntersect = (targetElement) ={
 }
 
 const Example = () => {
-  const targetRef = useIntersect(handleIntersect, option)
+
+  const targetRef = useIntersect(handleIntersect, {rootOptions: option, once:true})
 
   return (
     <img ref={targetRef}/>
@@ -46,7 +47,15 @@ const Example = () => {
 | Prop | Type | Required | Description |
 | :--- | :--- | :------: | :---------- |
 | `onIntersect` | Function |    ✓     | Execute onItersect Function |
-| `customOptions` | ObserverOptions | | Observer option |
+| `IntersectOptions` | IntersectOptions | | Intersect option |
+
+
+### `IntersectOptions` type
+
+| name | Type | Required | Description |
+| :--- | :--- | :------: | :---------- |
+| `rootOptions` | `ObserverOptions` | | ObserverOptions |
+| `once` | boolean | | [default:true] Trigger onItersect once |
 
 ### `ObserverOptions` type
 

@@ -11,7 +11,7 @@ const App = () => {
     console.log('intersect', target)
   }
 
-  const customeRef = useIntersect(onIntersectFunc, option)
+  const customeRef = useIntersect(onIntersectFunc, { rootOptions: option, once: false })
 
   return (
     <>

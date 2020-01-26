@@ -52,7 +52,7 @@ const Example = () => {
 
 | name | Type | Required | Description |
 | :--- | :--- | :------: | :---------- |
-| `root` | Element \| null |    ✓     | root Element |
+| `root` | Element \| null | | root Element |
 | `rootMargin` | string | | Observer rootMargin |
 | `threshold` | number | | Observer threshold |
 

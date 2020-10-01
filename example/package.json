@@ -6,8 +6,8 @@
   "private": true,
   "dependencies": {
     "react": "link:../node_modules/react",
-    "react-dom": "^16.9.0",
-    "react-scripts": "^3.0.1",
+    "react-dom": "16.13.1",
+    "react-scripts": "3.4.3",
     "use-intersect": "link:.."
   },
   "scripts": {
